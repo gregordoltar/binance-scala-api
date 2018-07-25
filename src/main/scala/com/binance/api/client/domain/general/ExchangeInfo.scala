@@ -10,6 +10,7 @@ case class ExchangeInfo(
     timezone:   String,
     serverTime: Instant,
     rateLimits: List[RateLimit],
+    exchangeFilters: List[String],
     symbols:    List[SymbolInfo]
 ) {
   lazy val getSymbolInfo: Map[Symbol, SymbolInfo] =
