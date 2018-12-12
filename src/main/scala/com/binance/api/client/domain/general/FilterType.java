@@ -6,6 +6,7 @@ package com.binance.api.client.domain.general;
 public enum FilterType {
   // Symbol
   PRICE_FILTER,
+  PERCENT_PRICE,
   LOT_SIZE,
   MIN_NOTIONAL,
   MAX_NUM_ORDERS,
