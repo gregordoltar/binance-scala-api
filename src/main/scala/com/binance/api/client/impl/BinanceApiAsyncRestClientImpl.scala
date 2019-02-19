@@ -44,11 +44,11 @@ object AsJava {
   implicit val x2: AsJava[Int, java.lang.Integer]  = t => t
   implicit val x3: AsJava[Instant, java.lang.Long] = _.millis
   implicit val x4: AsJava[Asset, String]           = _.value
-  implicit val x5: AsJava[Quantity, String]        = _.value.toString
-  implicit val x6: AsJava[Price, String]           = _.value.toString
+  implicit val x5: AsJava[Quantity, String]        = _.value.bigDecimal.toPlainString
+  implicit val x6: AsJava[Price, String]           = _.value.bigDecimal.toPlainString
   implicit val x7: AsJava[OrderId, java.lang.Long] = _.value
   implicit val x8: AsJava[Symbol, String]          = _.value.toUpperCase
-  implicit val x9: AsJava[Amount, String]          = _.value.toString()
+  implicit val x9: AsJava[Amount, String]          = _.value.bigDecimal.toPlainString
 
   implicit def instanceOpt[E <: java.lang.Enum[E]]: AsJava[E, E] = e => e
 }
