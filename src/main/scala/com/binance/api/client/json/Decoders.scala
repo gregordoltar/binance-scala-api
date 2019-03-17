@@ -63,8 +63,8 @@ object Decoders {
     Decoder.forProduct3("a", "f", "l")(AssetBalance.apply)
 
   implicit lazy val OrderBookEntryDecoder: Decoder[OrderBookEntry] =
-    Decoder.decodeTuple3[Price, Quantity, Seq[String]].map {
-      case (a0, a1, _) => OrderBookEntry(a0, a1)
+    Decoder.decodeTuple2[Price, Quantity ].map {
+      case (a0, a1) => OrderBookEntry(a0, a1)
     }
 
   implicit lazy val AccountUpdateEventDecoder: Decoder[AccountUpdateEvent] =
